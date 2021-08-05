@@ -10,16 +10,16 @@ import Spring
 class DataManager {
     static let shared = DataManager()
     
-    func getAnimations() -> [Animation]{
+    var animationPresets: [Animation] {
         var animations: [Animation] = []
         Spring.AnimationPreset.allCases.forEach { animation in
             animations.append(Animation(preset: animation.rawValue,
-                                        duration: Float.random(in: 0.5...1),
-                                        velocity: Float.random(in: 0.1...0.5),
-                                        damping: Float.random(in: 0.1...0.5),
-                                        delay: Float.random(in: 0.1...0.3)))
+                                        duration: 0.9,
+                                        velocity: 0.2,
+                                        damping: 0.6,
+                                        delay: 0.1))
         }
-        return animations
+        return animations.shuffled()
     }
     
     private init() {}

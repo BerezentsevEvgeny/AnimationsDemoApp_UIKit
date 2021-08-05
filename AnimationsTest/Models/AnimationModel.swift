@@ -24,5 +24,9 @@ struct Animation {
         """
     }
     
+    static func getAnimations() -> [Animation] {
+        DataManager.shared.animationPresets
+    }
+    
     
 }

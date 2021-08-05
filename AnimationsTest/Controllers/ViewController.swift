@@ -12,48 +12,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var animationView: SpringView!
     @IBOutlet weak var animationTextLabel: SpringLabel!
     
-    private let dataManager = DataManager.shared
-    private var allAnimations = [Animation]()
-    private var currentAnimation: Animation!
+    private let allAnimations = Animation.getAnimations()
+    private var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        view.backgroundColor = .systemGroupedBackground
+        animationTextLabel.text = allAnimations[counter].description
     }
     
     @IBAction func nextAnimationButtonTapped(_ sender: SpringButton) {
-        performAnimations()
-        sender.setTitle(currentAnimation.preset, for: .normal)
-    }
-    
-    private func setup() {
-        allAnimations = dataManager.getAnimations()
-        currentAnimation = allAnimations.first
-        animationTextLabel.text = currentAnimation.description
-    }
-    
-    private func performAnimations() {
+        sender.animation = "pop"
+        sender.duration = 0.3
+        sender.damping = 0.4
+        sender.animate()
+        let currentAnimation = allAnimations[counter]
+        animationTextLabel.text = allAnimations[counter].description
         animationView.animation = currentAnimation.preset
         animationView.duration = CGFloat(currentAnimation.duration)
         animationView.velocity = CGFloat(currentAnimation.velocity)
         animationView.damping = CGFloat(currentAnimation.damping)
         animationView.delay = CGFloat(currentAnimation.delay)
         animationView.animate()
-        allAnimations.shuffle()
-        currentAnimation = allAnimations.first
-        animationTextLabel.text = currentAnimation.description
+        counter += 1
+        sender.setTitle("Run \(allAnimations[counter].preset)", for: .normal)
     }
-    
-    
-    
 
-    
 
-    
-    
-
-    
-    
 }
 
 
