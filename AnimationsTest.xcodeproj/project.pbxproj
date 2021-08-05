@@ -13,6 +13,7 @@
 		632AB80726BA6BE5000C8108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632AB80526BA6BE5000C8108 /* Main.storyboard */; };
 		632AB80926BA6BE7000C8108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 632AB80826BA6BE7000C8108 /* Assets.xcassets */; };
 		632AB80C26BA6BE7000C8108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632AB80A26BA6BE7000C8108 /* LaunchScreen.storyboard */; };
+		6395182C26BBC79800D0F13A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395182B26BBC79800D0F13A /* DataManager.swift */; };
 		63AF99F226BB035900951BCF /* AnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AF99F126BB035900951BCF /* AnimationModel.swift */; };
 		6EDC0C145E72F0772078A7D4 /* Pods_AnimationsTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211A4F0CE1E133CE719C7076 /* Pods_AnimationsTest.framework */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		632AB80826BA6BE7000C8108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		632AB80B26BA6BE7000C8108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		632AB80D26BA6BE7000C8108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6395182B26BBC79800D0F13A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		63AF99F126BB035900951BCF /* AnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationModel.swift; sourceTree = "<group>"; };
 		E16B49946D146086923B726B /* Pods-AnimationsTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationsTest.debug.xcconfig"; path = "Target Support Files/Pods-AnimationsTest/Pods-AnimationsTest.debug.xcconfig"; sourceTree = "<group>"; };
 		F40D1FD97E575B8299BC7B26 /* Pods-AnimationsTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationsTest.release.xcconfig"; path = "Target Support Files/Pods-AnimationsTest/Pods-AnimationsTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				6392FC7226BBB38B0070ED2E /* Models */,
 				6392FC7326BBB3A60070ED2E /* Storyboards */,
 				6392FC7426BBB3C30070ED2E /* Controllers */,
+				6395182D26BBCB7D00D0F13A /* Managers */,
 				632AB81326BA882B000C8108 /* SupportingFiles */,
 			);
 			path = AnimationsTest;
@@ -116,6 +119,14 @@
 				632AB80326BA6BE5000C8108 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6395182D26BBCB7D00D0F13A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6395182B26BBC79800D0F13A /* DataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		CEA6497117EBC6BCE867A5B9 /* Frameworks */ = {
@@ -241,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63AF99F226BB035900951BCF /* AnimationModel.swift in Sources */,
+				6395182C26BBC79800D0F13A /* DataManager.swift in Sources */,
 				632AB80426BA6BE5000C8108 /* ViewController.swift in Sources */,
 				632AB80026BA6BE5000C8108 /* AppDelegate.swift in Sources */,
 				632AB80226BA6BE5000C8108 /* SceneDelegate.swift in Sources */,

@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var animationView: SpringView!
     @IBOutlet weak var animationTextLabel: SpringLabel!
     
+    private let dataManager = DataManager.shared
     private var allAnimations = [Animation]()
     private var currentAnimation: Animation!
     
@@ -21,20 +22,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextAnimationButtonTapped(_ sender: SpringButton) {
-        animationView.animation = currentAnimation.name
-        animationView.duration = CGFloat(currentAnimation.duration)
-        animationView.animate()
-        allAnimations.shuffle()
+        performAnimations()
+        sender.setTitle(currentAnimation.preset, for: .normal)
+    }
+    
+    private func setup() {
+        allAnimations = dataManager.getAnimations()
         currentAnimation = allAnimations.first
-        sender.setTitle(currentAnimation.name, for: .normal)
         animationTextLabel.text = currentAnimation.description
     }
     
-    func setup() {
-        allAnimations = Animation.getAnimations()
+    private func performAnimations() {
+        animationView.animation = currentAnimation.preset
+        animationView.duration = CGFloat(currentAnimation.duration)
+        animationView.velocity = CGFloat(currentAnimation.velocity)
+        animationView.damping = CGFloat(currentAnimation.damping)
+        animationView.delay = CGFloat(currentAnimation.delay)
+        animationView.animate()
+        allAnimations.shuffle()
         currentAnimation = allAnimations.first
         animationTextLabel.text = currentAnimation.description
     }
+    
+    
     
 
     
