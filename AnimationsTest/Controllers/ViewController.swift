@@ -12,30 +12,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var animationView: SpringView!
     @IBOutlet weak var animationTextLabel: SpringLabel!
     
-    private let allAnimations = Animation.getAnimations()
-    private var counter = 0
+    private var animation = Animation.getAnimation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGroupedBackground
-        animationTextLabel.text = allAnimations[counter].description
+        animationTextLabel.text = animation.description
     }
     
     @IBAction func nextAnimationButtonTapped(_ sender: SpringButton) {
+        animationTextLabel.text = animation.description
+        
         sender.animation = "pop"
         sender.duration = 0.3
         sender.damping = 0.4
         sender.animate()
-        let currentAnimation = allAnimations[counter]
-        animationTextLabel.text = allAnimations[counter].description
-        animationView.animation = currentAnimation.preset
-        animationView.duration = CGFloat(currentAnimation.duration)
-        animationView.velocity = CGFloat(currentAnimation.velocity)
-        animationView.damping = CGFloat(currentAnimation.damping)
-        animationView.delay = CGFloat(currentAnimation.delay)
+
+        animationView.animation = animation.preset
+        animationView.duration = CGFloat(animation.duration)
+        animationView.velocity = CGFloat(animation.velocity)
+        animationView.damping = CGFloat(animation.damping)
+        animationView.delay = CGFloat(animation.delay)
         animationView.animate()
-        counter += 1
-        sender.setTitle("Run \(allAnimations[counter].preset)", for: .normal)
+        
+        animation = Animation.getAnimation()
+        sender.setTitle("Run \(animation.preset)", for: .normal)
     }
 
 
